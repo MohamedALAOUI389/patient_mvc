@@ -14,10 +14,9 @@ import java.util.Date;
 @SpringBootApplication
 public class PatientsMvcApplication {
 
-    public static void main(String[] args) {
-        SpringApplication.run(PatientsMvcApplication.class, args);
+    public static void main(String[] args) { SpringApplication.run(PatientsMvcApplication.class, args);
     }
-    //@Bean
+    @Bean
     CommandLineRunner commandLineRunner(PatientRepository patientRepository){
         return args -> {
             patientRepository.save(new Patient(null,"Hassan",new Date(),false,100));

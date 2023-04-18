@@ -13,5 +13,3 @@ public class SecurityController {
         return "login";
     }
 }
-
-

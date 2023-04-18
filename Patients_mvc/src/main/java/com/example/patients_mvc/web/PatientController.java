@@ -1,3 +1,4 @@
+
 package com.example.patients_mvc.web;
 
 import com.example.patients_mvc.entities.Patient;
@@ -61,7 +62,7 @@ public class PatientController {
                        @RequestParam(defaultValue = "") String keyword){
         if(bindingResult.hasErrors()) return "formPatients";
         patientRepository.save(patient);
-        return "redirect:/index?page="+page+"&keyword="+keyword;
+        return "redirect:user/index?page="+page+"&keyword="+keyword;
     }
     @GetMapping("/admin/editPatient")
     public String editPatient(Model model,Long id, String keyword, int page){
@@ -69,7 +70,7 @@ public class PatientController {
         if(patient==null) throw new RuntimeException("Patient introuvable");
         model.addAttribute("patient",patient);
         model.addAttribute("page",page);
-        model.addAttribute("keyboard",keyword);
+        model.addAttribute("keyword",keyword);
         return "editPatient";
     }
 
